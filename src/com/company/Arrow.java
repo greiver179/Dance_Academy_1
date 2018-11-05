@@ -15,7 +15,7 @@ public class Arrow {
         this.x = x;
         this.y = y;
         this.arrow = arrow;
-        fall();
+//        fall();
     }
 
     public char getArrow() {
@@ -33,9 +33,10 @@ public class Arrow {
     public void fall() { //Speed of the arrow falling down
         previousX = getX();
         previousY = getY();
-        if (previousY < 30) {
+        do {
             y++;
-        }
+        } while (previousY < 30);
+
 
 //    private boolean isItHit(){//did you miss or hit the arrow at the right time
 //        return false;
