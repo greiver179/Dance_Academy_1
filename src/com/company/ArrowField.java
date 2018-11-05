@@ -5,13 +5,13 @@ import java.io.IOException;
 public class ArrowField {
 char arrow;
     //Left field----------------------------------------
-    public void spawnLeft() throws IOException { //x coordinate is 23
-        Arrow arrow = new Arrow(23,0,'T');
-        Main.terminal.setCursorPosition(arrow.getX(), arrow.getX());
-        Main.terminal.putCharacter(arrow.getArrow());
-
-
-    }
+//    public void spawnLeft() throws IOException { //x coordinate is 23
+//        Arrow arrow = new Arrow(23,0,'T');
+//        Main.terminal.setCursorPosition(arrow.getX(), arrow.getX());
+//        Main.terminal.putCharacter(arrow.getArrow());
+//
+//
+//    }
 
     //down Field------------------------------------
     public void spawnDown() throws IOException { //x coordinate is 29

@@ -10,13 +10,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
+import java.util.Timer;
 
 public class Main {
     public static Terminal terminal;
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        Arrow arrow = new Arrow(23,1,'\u21e6');
-        drawArrow(terminal, arrow);
+        Timer timer = new Timer();
         terminal = createTerminal();
         Player player = createPlayer();
         PlayingField playingField = new PlayingField();
@@ -39,10 +39,11 @@ public class Main {
                     keyStroke = getUserKeyStroke(terminal);
                     movePlayer(player, keyStroke);
                     drawCharacters(terminal, player);
-                    ArrowField arrowField = new ArrowField();
-                    arrowField.spawnLeft();
-                    Arrow arrow = new Arrow(23,0,'T');
-                    arrow.fall();
+//                    ArrowField arrowField = new ArrowField();
+//                    arrowField.spawnLeft();
+                    Arrow arrow = new Arrow(23,1,'\u21e6');
+                    drawArrow(terminal, arrow);
+                    timer.schedule(new Arrow(23,1,'\u21e6'), );
 
                     /*addRandomFlakes(snowFlakes);
                     moveSnowFlakes(snowFlakes);

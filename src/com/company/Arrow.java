@@ -1,6 +1,8 @@
 package com.company;
 
-public class Arrow {
+import java.util.TimerTask;
+
+public class Arrow extends TimerTask {
     //    private final char left = '\u21e6';
 //    private final char down = '\u21e7';
 //    private final char up = '\u21e9';
@@ -15,7 +17,8 @@ public class Arrow {
         this.x = x;
         this.y = y;
         this.arrow = arrow;
-        fall();
+    }
+    public void run() {
     }
 
     public char getArrow() {
@@ -30,12 +33,19 @@ public class Arrow {
         return y;
     }
 
+    public void moveDown(){
+        previousX = x;
+        previousY = y;
+        y++;
+    }
+
+
     public void fall() { //Speed of the arrow falling down
         previousX = getX();
         previousY = getY();
-        do {
-            y++;
-        } while (previousY < 30);
+        for (y = 0; y <= 30; y++){
+            moveDown();
+        }
 
 
 //    private boolean isItHit(){//did you miss or hit the arrow at the right time
