@@ -20,6 +20,8 @@ public class Main {
         PlayingField playingField = new PlayingField();
         playingField.drawField();
         drawCharacters(terminal, player);
+        Arrow arrow = new Arrow(23,1,'\u21e6');
+        drawArrow(terminal, arrow);
 
 
         do {
@@ -101,6 +103,11 @@ public class Main {
 
         terminal.flush();
 
+    }
+
+    public static void drawArrow (Terminal terminal, Arrow arrow) throws IOException {
+        terminal.setCursorPosition(arrow.getX(), arrow.getY());
+        terminal.putCharacter(arrow.getArrow());
     }
 
 }
