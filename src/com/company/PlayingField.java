@@ -22,7 +22,17 @@ public class PlayingField { // Everythin esthetic, seperator, lines etc
     }
 
 
-    public void drawScore() {
+    public void drawScore()throws IOException{
+
+        for (int i = 9; i <= 11; i++) {
+
+            Main.terminal.setCursorPosition(i,5);
+
+            Main.terminal.putCharacter('\u2665');
+
+            System.out.println(" ");
+
+        }
 
     }
 }
