@@ -22,6 +22,9 @@ public class DanceBoard {
     }
 
     public void drawLightUp() throws  IOException{
-        
+
+
     }
+
+
 }

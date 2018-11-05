@@ -20,25 +20,9 @@ public class Main {
         terminal = createTerminal();
         Player player = createPlayer();
 
-        for (int i = 0; i < 30; i++) {
-            terminal.setCursorPosition(20, i); // go to position(column, row)
-            terminal.putCharacter('\u2021');
+       PlayingField playingField = new PlayingField();
+       playingField.drawField();
 
-        }
-
-    /*    terminal.setCursorPosition(9,10);//left side
-        //terminal.enableSGR();
-        terminal.putCharacter('\u21d0');
-
-
-        terminal.setCursorPosition(11,10);//Right side u21d2
-        terminal.putCharacter('\u21d2');
-
-        terminal.setCursorPosition(10,9);// up u21d1
-        terminal.putCharacter('\u21d1');
-
-        terminal.setCursorPosition(9,11);//down u21d3
-        terminal.putCharacter('\u21d3');*/
 
         drawCharacters(terminal,player);
 
