@@ -20,30 +20,27 @@ public class Main {
         PlayingField playingField = new PlayingField();
         playingField.drawField();
         drawCharacters(terminal, player);
-        Arrow arrow = new Arrow(23,1,'\u21e6');
-        drawArrow(terminal, arrow);
 
 ///////////////////////////////////////////////////
         final int timeCounterThreshold = 80;
         int timeCounter = 0;
+        Arrow arrow = new Arrow(23,0,'T');
         while(true){
             KeyStroke keyStroke;
+
             do {
                 // everything inside this loop will be called approximately every ~5 millisec.
-                Thread.sleep(5);
+                Thread.sleep(1);
                 keyStroke = terminal.pollInput();
+
 
                 timeCounter++;
                 if (timeCounter >= timeCounterThreshold){
                     timeCounter = 0;
-                    keyStroke = getUserKeyStroke(terminal);
-                    movePlayer(player, keyStroke);
-                    drawCharacters(terminal, player);
-                    ArrowField arrowField = new ArrowField();
-                    arrowField.spawnLeft();
-                    Arrow arrow = new Arrow(23,0,'T');
-                    arrow.fall();
 
+
+                    arrow.fall();
+                    drawArrow(terminal,arrow);
                     /*addRandomFlakes(snowFlakes);
                     moveSnowFlakes(snowFlakes);
                     removeDeadFlakes(snowFlakes);

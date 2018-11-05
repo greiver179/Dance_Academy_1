@@ -31,11 +31,9 @@ public class Arrow {
     }
 
     public void fall() { //Speed of the arrow falling down
-        previousX = getX();
-        previousY = getY();
-        do {
-            y++;
-        } while (previousY < 30);
+
+        y++;
+    }
 
 
 //    private boolean isItHit(){//did you miss or hit the arrow at the right time
@@ -43,5 +41,5 @@ public class Arrow {
 //    }
 
 
-    }
 }
+
