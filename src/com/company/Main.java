@@ -10,13 +10,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
-import java.util.Timer;
 
 public class Main {
     public static Terminal terminal;
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        Timer timer = new Timer();
         terminal = createTerminal();
         Player player = createPlayer();
         PlayingField playingField = new PlayingField();
@@ -26,25 +24,23 @@ public class Main {
 ///////////////////////////////////////////////////
         final int timeCounterThreshold = 80;
         int timeCounter = 0;
+        Arrow arrow = new Arrow(23,0,'T');
         while(true){
             KeyStroke keyStroke;
+
             do {
                 // everything inside this loop will be called approximately every ~5 millisec.
-                Thread.sleep(5);
+                Thread.sleep(1);
                 keyStroke = terminal.pollInput();
+
 
                 timeCounter++;
                 if (timeCounter >= timeCounterThreshold){
                     timeCounter = 0;
-                    keyStroke = getUserKeyStroke(terminal);
-                    movePlayer(player, keyStroke);
-                    drawCharacters(terminal, player);
-//                    ArrowField arrowField = new ArrowField();
-//                    arrowField.spawnLeft();
-                    Arrow arrow = new Arrow(23,1,'\u21e6');
-                    drawArrow(terminal, arrow);
-                    timer.schedule(new Arrow(23,1,'\u21e6'), );
 
+
+                    arrow.fall();
+                    drawArrow(terminal,arrow);
                     /*addRandomFlakes(snowFlakes);
                     moveSnowFlakes(snowFlakes);
                     removeDeadFlakes(snowFlakes);
