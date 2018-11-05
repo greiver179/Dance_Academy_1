@@ -21,6 +21,8 @@ public class Main {
         playingField.drawField();
         drawCharacters(terminal, player);
 
+
+
 ///////////////////////////////////////////////////
         final int timeCounterThreshold = 80;
         int timeCounter = 0;
@@ -32,15 +34,19 @@ public class Main {
                 // everything inside this loop will be called approximately every ~5 millisec.
                 Thread.sleep(1);
                 keyStroke = terminal.pollInput();
-
-
                 timeCounter++;
                 if (timeCounter >= timeCounterThreshold){
                     timeCounter = 0;
 
 
                     arrow.fall();
+
                     drawArrow(terminal,arrow);
+                    playingField.drawField();
+
+
+
+                    drawCharacters(terminal, player);
                     /*addRandomFlakes(snowFlakes);
                     moveSnowFlakes(snowFlakes);
                     removeDeadFlakes(snowFlakes);
@@ -55,6 +61,7 @@ public class Main {
 
             movePlayer(player, keyStroke);
             drawCharacters(terminal, player);
+
 
             terminal.flush(); // don't forget to flush to see any updates!
         }
@@ -137,8 +144,10 @@ public class Main {
     }
 
     public static void drawArrow (Terminal terminal, Arrow arrow) throws IOException {
+        terminal.clearScreen();
         terminal.setCursorPosition(arrow.getX(), arrow.getY());
         terminal.putCharacter(arrow.getArrow());
+
     }
 
 }
