@@ -23,18 +23,52 @@ public class Main {
         playingField.drawField();
         drawCharacters(terminal, player);
 
+///////////////////////////////////////////////////
+        final int timeCounterThreshold = 80;
+        int timeCounter = 0;
+        while(true){
+            KeyStroke keyStroke;
+            do {
+                // everything inside this loop will be called approximately every ~5 millisec.
+                Thread.sleep(5);
+                keyStroke = terminal.pollInput();
 
-        do {
-            KeyStroke keyStroke = getUserKeyStroke(terminal);
+                timeCounter++;
+                if (timeCounter >= timeCounterThreshold){
+                    timeCounter = 0;
+                    keyStroke = getUserKeyStroke(terminal);
+                    movePlayer(player, keyStroke);
+                    drawCharacters(terminal, player);
+                    ArrowField arrowField = new ArrowField();
+                    arrowField.spawnLeft();
+                    Arrow arrow = new Arrow(23,0,'T');
+                    arrow.fall();
+
+                    /*addRandomFlakes(snowFlakes);
+                    moveSnowFlakes(snowFlakes);
+                    removeDeadFlakes(snowFlakes);
+                    printSnowFlakes(snowFlakes, terminal);
+                    printPlayer(terminal, player);*/
+
+                    terminal.flush(); // don't forget to flush to see any updates!
+                }
+
+
+            } while (keyStroke == null);
+
             movePlayer(player, keyStroke);
             drawCharacters(terminal, player);
-           /* addRandomFlakes(snowFlakes);
-            moveSnowFlakes(snowFlakes);
-            removeDeadFlakes(snowFlakes);
-            printSnowFlakes(snowFlakes, terminal);*/
+
+            terminal.flush(); // don't forget to flush to see any updates!
+        }
+
+      //////////////////////////////////////////////
 
 
-        } while (true);
+
+
+
+
 
     }
 
