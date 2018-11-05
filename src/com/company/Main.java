@@ -1,4 +1,5 @@
 package com.company;
+
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -10,28 +11,25 @@ import java.util.List;
 import java.io.IOException;
 
 public class Main {
-   public static Terminal terminal;
-    public static void main(String[] args) throws IOException,InterruptedException {
+    public static Terminal terminal;
 
-
-        // 21D0 till  21D3
-
-
+    public static void main(String[] args) throws IOException, InterruptedException {
         terminal = createTerminal();
         Player player = createPlayer();
-
-       PlayingField playingField = new PlayingField();
+        PlayingField playingField = new PlayingField();
        playingField.drawField();
+        drawCharacters(terminal, player);
 
 
-        drawCharacters(terminal,player);
 
         do {
             KeyStroke keyStroke = getUserKeyStroke(terminal);
-
             movePlayer(player, keyStroke);
-
-            drawCharacters(terminal,player);
+            drawCharacters(terminal, player);
+           /* addRandomFlakes(snowFlakes);
+            moveSnowFlakes(snowFlakes);
+            removeDeadFlakes(snowFlakes);
+            printSnowFlakes(snowFlakes, terminal);*/
 
 
         } while (true);
@@ -45,35 +43,36 @@ public class Main {
         terminal.setCursorVisible(false);
         return terminal;
     }
+
     private static Player createPlayer() {
         return new Player(10, 10, '\u263a');
     }
 
 
-    private static void movePlayer(Player player, KeyStroke keyStroke)throws InterruptedException,IOException {
+    private static void movePlayer(Player player, KeyStroke keyStroke) throws InterruptedException, IOException {
         switch (keyStroke.getKeyType()) {
             case ArrowUp:
                 player.moveUp();
-                drawCharacters(terminal,player);
+                drawCharacters(terminal, player);
                 Thread.sleep(100);
                 player.moveDown();
-                drawCharacters(terminal,player);
+                drawCharacters(terminal, player);
                 break;
             case ArrowDown:
                 player.moveDown();
-                drawCharacters(terminal,player);
+                drawCharacters(terminal, player);
                 Thread.sleep(100);
                 player.moveUp();
                 break;
             case ArrowLeft:
                 player.moveLeft();
-                drawCharacters(terminal,player);
+                drawCharacters(terminal, player);
                 Thread.sleep(100);
                 player.moveRight();
                 break;
             case ArrowRight:
                 player.moveRight();
-                drawCharacters(terminal,player);
+                drawCharacters(terminal, player);
                 Thread.sleep(100);
                 player.moveLeft();
                 break;
