@@ -10,11 +10,12 @@ public class PlayingField { // Everythin esthetic, seperator, lines etc
     final int lineD = 38;
     final int lineE = 44;
     public void drawField() throws IOException {
-        drawSeperators(lineA);
-        drawSeperators(lineB);
-        drawSeperators(lineC);
-        drawSeperators(lineD);
-        drawSeperators(lineE);
+        drawVerticalSeperator(lineA);
+        drawVerticalSeperator(lineB);
+        drawVerticalSeperator(lineC);
+        drawVerticalSeperator(lineD);
+        drawVerticalSeperator(lineE);
+        drawHorisontalSeperator(18);
         drawHitbox(23);
         drawHitbox(29);
         drawHitbox(35);
@@ -22,10 +23,18 @@ public class PlayingField { // Everythin esthetic, seperator, lines etc
         drawScore();
     }
 
-    public void drawSeperators(int column) throws IOException {
+    public void drawVerticalSeperator(int column) throws IOException {
         for (int i = 0; i < 23; i++) {
             Main.terminal.setCursorPosition(column, i); // go to position(column, row)
             Main.terminal.putCharacter('\u2021');
+
+        }
+    }
+
+    public void drawHorisontalSeperator(int row) throws IOException {
+        for (int i = 20; i < 45; i++) {
+            Main.terminal.setCursorPosition(i, row); // go to position(column, row)
+            Main.terminal.putCharacter('\u002D');
 
         }
     }
