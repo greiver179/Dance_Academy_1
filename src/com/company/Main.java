@@ -10,7 +10,7 @@ import java.util.List;
 import java.io.IOException;
 
 public class Main {
-   static Terminal terminal;
+   public static Terminal terminal;
     public static void main(String[] args) throws IOException,InterruptedException {
 
 
@@ -26,7 +26,7 @@ public class Main {
 
         }
 
-        terminal.setCursorPosition(9,10);//left side
+    /*    terminal.setCursorPosition(9,10);//left side
         //terminal.enableSGR();
         terminal.putCharacter('\u21d0');
 
@@ -38,7 +38,7 @@ public class Main {
         terminal.putCharacter('\u21d1');
 
         terminal.setCursorPosition(9,11);//down u21d3
-        terminal.putCharacter('\u21d3');
+        terminal.putCharacter('\u21d3');*/
 
         drawCharacters(terminal,player);
 
@@ -73,6 +73,7 @@ public class Main {
                 drawCharacters(terminal,player);
                 Thread.sleep(100);
                 player.moveDown();
+                drawCharacters(terminal,player);
                 break;
             case ArrowDown:
                 player.moveDown();
@@ -107,7 +108,8 @@ public class Main {
 
     private static void drawCharacters(Terminal terminal, Player player) throws IOException {
 
-
+        DanceBoard danceBoard = new DanceBoard();
+        danceBoard.drawDancePad();
         terminal.setCursorPosition(player.getPreviousX(), player.getPreviousY());
         terminal.putCharacter(' ');
 
