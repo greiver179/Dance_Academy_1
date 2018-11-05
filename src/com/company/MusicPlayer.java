@@ -19,8 +19,8 @@ public class MusicPlayer{
     public MusicPlayer(){
         audioMap = new ConcurrentHashMap<>();
         fxPanel = new JFXPanel(); // need to create one instance
-        pauseMode = false;
     }
+
 
     private void setLoop(MediaPlayer mediaPlayer, boolean loop) {
         if (mediaPlayer == null){
@@ -52,75 +52,6 @@ public class MusicPlayer{
                 audioMap.put(filepath, mediaPlayer);
             }
             mediaPlayer.seek(Duration.ZERO);
-            mediaPlayer.play();
-        }
-        catch ( Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void stop(String filepath){
-        try {
-            if (audioMap.containsKey(filepath)) {
-                MediaPlayer mediaPlayer = audioMap.get(filepath);
-                mediaPlayer.pause();
-                mediaPlayer.seek(Duration.ZERO);
-                audioMap.remove(filepath);
-            }
-        }
-        catch ( Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void stopAll(){
-        Set<String> keys = audioMap.keySet();
-        if (keys.size() == 0) return;
-        for (String s : keys){
-            stop(s);
-        }
-        pauseMode = false;
-    }
-
-    public void pauseAll(){
-        Set<String> keys = audioMap.keySet();
-        if (keys.size() == 0) return;
-        for (String s : keys){
-            if (pauseMode)
-                resume(s);
-            else
-                pause(s);
-        }
-        pauseMode = !pauseMode;
-    }
-
-    private void pause(String filepath){
-        try {
-            if (audioMap.containsKey(filepath)) {
-                MediaPlayer mediaPlayer = audioMap.get(filepath);
-                mediaPlayer.pause();
-            }
-        }
-        catch ( Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    private void resume(String filepath){
-        try {
-            if (audioMap.containsKey(filepath)) {
-                MediaPlayer mediaPlayer = audioMap.get(filepath);
-                mediaPlayer.play();
-            }
-        }
-        catch ( Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void playFX(String filepath){
-        try {
-            MediaPlayer mediaPlayer = new MediaPlayer( new Media(new File(filepath).toURI().toString()) );
             mediaPlayer.play();
         }
         catch ( Exception e){
