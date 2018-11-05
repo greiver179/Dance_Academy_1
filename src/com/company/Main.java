@@ -1,14 +1,9 @@
 package com.company;
 
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.IOException;
 
 public class Main {
@@ -20,6 +15,8 @@ public class Main {
         PlayingField playingField = new PlayingField();
         playingField.drawField();
         drawCharacters(terminal, player);
+        MusicPlayer music = new MusicPlayer();
+        music.play("music.mp3");
 
 
 
@@ -37,6 +34,7 @@ public class Main {
                 timeCounter++;
                 if (timeCounter >= timeCounterThreshold){
                     timeCounter = 0;
+
 
 
                     arrow.fall();
