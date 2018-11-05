@@ -1,6 +1,7 @@
 package com.company;
 
 import com.googlecode.lanterna.SGR;
+import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
@@ -17,9 +18,8 @@ public class Main {
         terminal = createTerminal();
         Player player = createPlayer();
         PlayingField playingField = new PlayingField();
-       playingField.drawField();
+        playingField.drawField();
         drawCharacters(terminal, player);
-
 
 
         do {
