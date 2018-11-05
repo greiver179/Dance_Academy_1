@@ -15,13 +15,13 @@ public class Main {
     public static Terminal terminal;
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        Arrow arrow = new Arrow(23,1,'\u21e6');
+        drawArrow(terminal, arrow);
         terminal = createTerminal();
         Player player = createPlayer();
         PlayingField playingField = new PlayingField();
         playingField.drawField();
         drawCharacters(terminal, player);
-        Arrow arrow = new Arrow(23,1,'\u21e6');
-        drawArrow(terminal, arrow);
 
 
         do {

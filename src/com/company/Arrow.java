@@ -15,7 +15,7 @@ public class Arrow {
         this.x = x;
         this.y = y;
         this.arrow = arrow;
-//        fall();
+        fall();
     }
 
     public char getArrow() {
