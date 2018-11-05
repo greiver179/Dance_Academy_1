@@ -6,17 +6,16 @@ public class ArrowField {
 char arrow;
     //Left field----------------------------------------
     public void spawnLeft() throws IOException { //x coordinate is 23
-        Main.terminal.setCursorPosition(23, 0);
-    //add arrow and movement
+        Arrow arrow = new Arrow(23,0,'T');
+        Main.terminal.setCursorPosition(arrow.getX(), arrow.getX());
+        Main.terminal.putCharacter(arrow.getArrow());
 
-        if(true){
-
-        }
 
     }
 
     //down Field------------------------------------
     public void spawnDown() throws IOException { //x coordinate is 29
+
         Main.terminal.setCursorPosition(29, 0);
         //add arrow and movement
 

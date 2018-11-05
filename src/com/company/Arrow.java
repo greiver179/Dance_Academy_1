@@ -30,7 +30,7 @@ public class Arrow {
         return y;
     }
 
-    private void fall() { //Speed of the arrow falling down
+    public void fall() { //Speed of the arrow falling down
         previousX = getX();
         previousY = getY();
         if (previousY < 30) {
