@@ -20,4 +20,8 @@ public class DanceBoard {
         Main.terminal.putCharacter('\u21d3');
 
     }
+
+    public void drawLightUp() throws  IOException{
+        
+    }
 }

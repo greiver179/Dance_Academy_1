@@ -109,10 +109,10 @@ public class Main {
     private static void drawCharacters(Terminal terminal, Player player) throws IOException {
 
         DanceBoard danceBoard = new DanceBoard();
-        danceBoard.drawDancePad();
+
         terminal.setCursorPosition(player.getPreviousX(), player.getPreviousY());
         terminal.putCharacter(' ');
-
+        danceBoard.drawDancePad();
         terminal.setCursorPosition(player.getX(), player.getY());
         terminal.putCharacter(player.getSymbol());
 
