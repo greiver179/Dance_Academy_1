@@ -42,7 +42,7 @@ public class PlayingField { // Everythin esthetic, seperator, lines etc
 
     public void drawScore()throws IOException{
 
-        for (int i = 9; i <= 11; i++) {
+        for (int i = 11; i <= 11; i++) {
 
             Main.terminal.setCursorPosition(i,5);
 

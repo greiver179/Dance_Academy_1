@@ -1,5 +1,9 @@
 package com.company;
 
+import java.io.IOException;
+
+import static com.company.Main.terminal;
+
 public class Arrow {
     //    private final char left = '\u21e6';
 //    private final char down = '\u21e7';
@@ -31,13 +35,16 @@ public class Arrow {
     }
 
     public void fall(Arrow arrow) { //Speed of the arrow falling down
-        if (arrow.getY() == 23){
-            arrow.y = 0;
-            arrow.x = 0;
+        if (arrow.getY() == 23) {
             arrow.arrow = ' ';
         }
-
         y++;
+    }
+
+    public void checkIfHit(Arrow arrow, Player player) throws IOException {
+        if (arrow.getY() == 23 && arrow.getX() == 23 && player.getX() != 9){
+            terminal.close();
+        }
     }
 
 

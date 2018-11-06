@@ -1,5 +1,11 @@
 package com.company;
 
+import javax.swing.*;
+import java.io.IOException;
+import java.security.Key;
+
+import static com.company.Main.terminal;
+
 public class Player {
     private int x;
     private int y;
@@ -69,4 +75,5 @@ public class Player {
                 ", previousY=" + previousY +
                 '}';
     }
+
 }

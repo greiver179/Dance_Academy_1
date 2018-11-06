@@ -38,9 +38,11 @@ public class Main {
 
 
                     arrow.fall(arrow);
+                    arrow.checkIfHit(arrow, player);
 
                     drawArrow(terminal,arrow);
                     playingField.drawField();
+
 
 
 
@@ -147,4 +149,5 @@ public class Main {
         terminal.putCharacter(arrow.getArrow());
 
     }
+
 }
