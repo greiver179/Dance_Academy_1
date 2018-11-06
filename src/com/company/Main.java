@@ -19,6 +19,11 @@ public class Main {
         drawCharacters(terminal, player);
         MusicPlayer music = new MusicPlayer();
         music.play("music.mp3");
+        String message = "    Dance Academy";
+        for (int i = 0; i < message.length(); i++) {
+            Main.terminal.setCursorPosition(i, 1);
+            Main.terminal.putCharacter(message.charAt(i));
+        }
 
 
 

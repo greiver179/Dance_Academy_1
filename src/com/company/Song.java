@@ -9,21 +9,39 @@ public class Song {
     //put song arrows here
 
     Song() {
+        for (int i = 0; i < 18; i++) {
+            addArrow("pause");
+        }
         addArrow("left");
+        addArrow("q");
+        addArrow("left");
+        addArrow("q");
+        addArrow("left");
+        addArrow("q");
+        addArrow("left");
+        for (int i = 0; i < 17; i++) {
+            addArrow("q");
+        }
+
+        addArrow("up");
+        addArrow("q");
         addArrow("right");
-        addArrow("pause");
-        addArrow("pause");
-        addArrow("pause");
-        addArrow("pause");
-        addArrow("pause");
-        addArrow("pause");
-        addArrow("pause");
-        addArrow("pause");
-        addArrow("pause");
-        addArrow("right");
+        addArrow("q");
         addArrow("down");
+        addArrow("q");
+        addArrow("left");
+        addArrow("q");
+        addArrow("left");
+        addArrow("q");
         addArrow("up");
 
+        addArrow("up");
+        addArrow("q");
+        addArrow("down");
+        addArrow("q");
+        addArrow("down");
+        addArrow("q");
+        addArrow("right");
 
     }
 

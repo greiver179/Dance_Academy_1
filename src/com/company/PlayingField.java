@@ -10,12 +10,15 @@ public class PlayingField { // Everythin esthetic, seperator, lines etc
     final int lineD = 38;
     final int lineE = 44;
     public void drawField() throws IOException {
+
+
+
         drawVerticalSeperator(lineA);
         drawVerticalSeperator(lineB);
         drawVerticalSeperator(lineC);
         drawVerticalSeperator(lineD);
         drawVerticalSeperator(lineE);
-        drawHorisontalSeperator(18);
+       // drawHorisontalSeperator(18);
         drawHitbox(23);
         drawHitbox(29);
         drawHitbox(35);
