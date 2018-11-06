@@ -30,7 +30,12 @@ public class Arrow {
         return y;
     }
 
-    public void fall() { //Speed of the arrow falling down
+    public void fall(Arrow arrow) { //Speed of the arrow falling down
+        if (arrow.getY() == 23){
+            arrow.y = 0;
+            arrow.x = 0;
+            arrow.arrow = ' ';
+        }
 
         y++;
     }

@@ -37,7 +37,7 @@ public class Main {
 
 
 
-                    arrow.fall();
+                    arrow.fall(arrow);
 
                     drawArrow(terminal,arrow);
                     playingField.drawField();
@@ -147,11 +147,4 @@ public class Main {
         terminal.putCharacter(arrow.getArrow());
 
     }
-
-    public static void hitbox(Arrow arrow){
-        if (arrow.getY() == 23){
-
-        }
-    }
-
 }
