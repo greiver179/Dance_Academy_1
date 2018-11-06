@@ -23,7 +23,7 @@ public class PlayingField { // Everythin esthetic, seperator, lines etc
         drawHitbox(29);
         drawHitbox(35);
         drawHitbox(41);
-        drawScore();
+      //  drawScore();
     }
 
     public void drawVerticalSeperator(int column) throws IOException {
@@ -73,7 +73,7 @@ public class PlayingField { // Everythin esthetic, seperator, lines etc
 
     public void drawHitbox(int line) throws  IOException{
         Main.terminal.setCursorPosition(line,20);// up u21d1
-        Main.terminal.putCharacter('\u21d1');
+        Main.terminal.putCharacter('\u13ff');
 
     }
 }
