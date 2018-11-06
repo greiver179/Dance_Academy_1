@@ -19,7 +19,7 @@ public class Arrow {
         this.x = x;
         this.y = y;
         this.arrow = arrow;
-//        fall();
+
     }
 
     public char getArrow() {
@@ -41,10 +41,6 @@ public class Arrow {
         y++;
     }
 
-
-//    private boolean isItHit(){//did you miss or hit the arrow at the right time
-//        return false;
-//    }
 
 
 }

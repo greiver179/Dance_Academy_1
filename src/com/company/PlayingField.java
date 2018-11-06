@@ -34,13 +34,13 @@ public class PlayingField { // Everythin esthetic, seperator, lines etc
         }
     }
 
-    public void drawHorisontalSeperator(int row) throws IOException {
+ /*   public void drawHorisontalSeperator(int row) throws IOException {
         for (int i = 20; i < 45; i++) {
             Main.terminal.setCursorPosition(i, row); // go to position(column, row)
             Main.terminal.putCharacter('\u002D');
 
         }
-    }
+    }*/
 
 
     public void drawScore()throws IOException{

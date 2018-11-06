@@ -114,7 +114,7 @@ public class Main {
                 drawCharacters(terminal, player);
                 Thread.sleep(100);
                 player.setArrowPress(true);
-             //   player.moveDown();
+
                 drawCharacters(terminal, player);
                 break;
             case ArrowDown:
@@ -122,33 +122,25 @@ public class Main {
                 drawCharacters(terminal, player);
                 Thread.sleep(100);
                 player.setArrowPress(true);
-              //  player.moveUp();
+
                 break;
             case ArrowLeft:
                 player.moveLeft();
                 drawCharacters(terminal, player);
                 Thread.sleep(100);
                 player.setArrowPress(true);
-                //player.moveRight();
+
                 break;
             case ArrowRight:
                 player.moveRight();
                 drawCharacters(terminal, player);
                 Thread.sleep(100);
                 player.setArrowPress(true);
-               // player.moveLeft();
+
                 break;
         }
     }
 
-    private static KeyStroke getUserKeyStroke(Terminal terminal) throws InterruptedException, IOException {
-        KeyStroke keyStroke;
-        do {
-            Thread.sleep(20);
-            keyStroke = terminal.pollInput();
-        } while (keyStroke == null);
-        return keyStroke;
-    }
 
 
     private static void drawCharacters(Terminal terminal, Player player) throws IOException {
@@ -165,14 +157,7 @@ public class Main {
 
     }
 
-    private static void drawArrow(Arrow arrow, Terminal terminal) throws IOException {
 
-        terminal.setCursorPosition(arrow.getX(), arrow.getY());
-        terminal.putCharacter(arrow.getArrow());
-        terminal.setCursorPosition(arrow.getX(), arrow.getY() - 1);
-        terminal.putCharacter(' ');
-
-    }
 
     private static void drawArrows(List<Arrow> quiver, Terminal terminal) throws IOException, InterruptedException {
 
@@ -198,7 +183,7 @@ public class Main {
     }
 
     private static void checkIfHit(List<Arrow> arrowList, Player player) throws IOException,InterruptedException {
-        KeyStroke left = new KeyStroke(KeyType.ArrowLeft);
+
         /*if (arrowList.isEmpty()) {
             return;
         }*/

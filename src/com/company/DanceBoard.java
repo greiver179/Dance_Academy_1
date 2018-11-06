@@ -21,15 +21,5 @@ public class DanceBoard {
 
     }
 
- /*   public void drawArrow() throws IOException {
-        Main.terminal.setCursorPosition(15,15);
-        Main.terminal.putCharacter('\u21e8');
-    }*/
-
-    public void drawLightUp() throws  IOException{
-
-
-    }
-
 
 }
