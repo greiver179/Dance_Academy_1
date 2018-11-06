@@ -26,7 +26,6 @@ public class Main {
         }
 
 
-
 ///////////////////////////////////////////////////
 
         Song song = new Song();
@@ -37,7 +36,7 @@ public class Main {
         int timeCounter = 0;
         int index = 0;
 
-        while(true){
+        while (true) {
             KeyStroke keyStroke;
 
             do {
@@ -45,16 +44,15 @@ public class Main {
                 Thread.sleep(5);
                 keyStroke = terminal.pollInput();
                 timeCounter++;
-                if (timeCounter >= timeCounterThreshold){
+                if (timeCounter >= timeCounterThreshold) {
                     // terminal.clearScreen();
                     timeCounter = 0;
 
                     addArrows(quiver, allArrowsToUse);
                     moveArrows(quiver);
-                    drawArrows(quiver,terminal);
+                    drawArrows(quiver, terminal);
                     playingField.drawField();
-
-
+                    checkIfHit(quiver, player);
 
 
                     drawCharacters(terminal, player);
@@ -77,18 +75,13 @@ public class Main {
             terminal.flush(); // don't forget to flush to see any updates!
         }
 
-      //////////////////////////////////////////////
-
-
-
-
-
+        //////////////////////////////////////////////
 
 
     }
 
     private static void addArrows(List<Arrow> quiver, List<Arrow> allArrowsToUse) {
-        if (allArrowsToUse.isEmpty()){
+        if (allArrowsToUse.isEmpty()) {
             return;
         }
         quiver.add(allArrowsToUse.remove(0));
@@ -161,23 +154,23 @@ public class Main {
 
     }
 
-    private static void drawArrow(Arrow arrow, Terminal terminal) throws IOException{
+    private static void drawArrow(Arrow arrow, Terminal terminal) throws IOException {
 
         terminal.setCursorPosition(arrow.getX(), arrow.getY());
         terminal.putCharacter(arrow.getArrow());
-        terminal.setCursorPosition(arrow.getX(),arrow.getY()-1);
+        terminal.setCursorPosition(arrow.getX(), arrow.getY() - 1);
         terminal.putCharacter(' ');
 
     }
 
-    private static void drawArrows(List<Arrow> quiver, Terminal terminal) throws IOException,InterruptedException {
+    private static void drawArrows(List<Arrow> quiver, Terminal terminal) throws IOException, InterruptedException {
 
         for (Arrow arrow : quiver) {
 
 
             terminal.setCursorPosition(arrow.getX(), arrow.getY());
             terminal.putCharacter(arrow.getArrow());
-            terminal.setCursorPosition(arrow.getX(),arrow.getY()-1);
+            terminal.setCursorPosition(arrow.getX(), arrow.getY() - 1);
             terminal.putCharacter(' ');
 
         }
@@ -189,6 +182,19 @@ public class Main {
         for (Arrow arrow : quiver) {
             arrow.fall(arrow);
 
+        }
+    }
+
+    private static void checkIfHit(List<Arrow> arrowList, Player player) throws IOException {
+        if (arrowList.isEmpty()) {
+            return;
+        }
+        if (arrowList.get(0).getY() == 21 &&
+                arrowList.get(0).getX() == 23 &&
+                player.getX() != 9) {
+            System.out.println("BBBKKAKAKAKAK");
+//            terminal.bell();
+//            terminal.close();
         }
     }
 
