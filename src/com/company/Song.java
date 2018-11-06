@@ -9,9 +9,10 @@ public class Song {
     //put song arrows here
 
     Song() {
-        for (int i = 0; i < 18; i++) {
+        addArrow("left");
+      /*  for (int i = 0; i < 18; i++) {
             addArrow("pause");
-        }
+        }*/
         addArrow("left");
         addArrow("q");
         addArrow("left");

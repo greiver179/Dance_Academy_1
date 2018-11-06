@@ -12,6 +12,7 @@ public class Player {
     private char symbol;
     private int previousX;
     private int previousY;
+    boolean arrowPress;
 
     public Player(int x, int y, char symbol) {
         this.x = x;
@@ -41,28 +42,41 @@ public class Player {
         return previousY;
     }
 
-    public void moveUp(){
+    public void moveUp() {
         previousX = x;
         previousY = y;
         y--;
     }
 
-    public void moveDown(){
+    public void moveDown() {
         previousX = x;
         previousY = y;
         y++;
     }
 
-    public void moveLeft(){
+    public void moveLeft() {
         previousX = x;
         previousY = y;
         x--;
     }
 
-    public void moveRight(){
+    public void moveRight() {
         previousX = x;
         previousY = y;
         x++;
+    }
+
+    public void moveToPrevious() {
+        this.x = previousX;
+        this.y = previousY;
+    }
+
+    public boolean isArrowPress() {
+        return arrowPress;
+    }
+
+    public void setArrowPress(boolean arrowPress) {
+        this.arrowPress = arrowPress;
     }
 
     @Override

@@ -1,6 +1,9 @@
 package com.company;
 
+import com.googlecode.lanterna.SGR;
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
@@ -20,10 +23,14 @@ public class Main {
         MusicPlayer music = new MusicPlayer();
         music.play("music.mp3");
         String message = "    Dance Academy";
+        terminal.enableSGR(SGR.BLINK);
+        terminal.setForegroundColor(TextColor.ANSI.CYAN);
         for (int i = 0; i < message.length(); i++) {
             Main.terminal.setCursorPosition(i, 1);
             Main.terminal.putCharacter(message.charAt(i));
         }
+        terminal.setForegroundColor(TextColor.ANSI.YELLOW);
+        terminal.disableSGR(SGR.BLINK);
 
 
 ///////////////////////////////////////////////////
@@ -34,7 +41,7 @@ public class Main {
 
         final int timeCounterThreshold = 80;
         int timeCounter = 0;
-        int index = 0;
+
 
         while (true) {
             KeyStroke keyStroke;
@@ -50,17 +57,17 @@ public class Main {
 
                     addArrows(quiver, allArrowsToUse);
                     moveArrows(quiver);
+
+                    checkIfHit(quiver,player);  ///////
+                    if(player.isArrowPress()){
+                        player.moveToPrevious();
+                        player.setArrowPress(false);
+                    }
+
                     drawArrows(quiver, terminal);
+
                     playingField.drawField();
-                    checkIfHit(quiver, player);
-
-
                     drawCharacters(terminal, player);
-                    /*addRandomFlakes(snowFlakes);
-                    moveSnowFlakes(snowFlakes);
-                    removeDeadFlakes(snowFlakes);
-                    printSnowFlakes(snowFlakes, terminal);
-                    printPlayer(terminal, player);*/
 
                     terminal.flush(); // don't forget to flush to see any updates!
                 }
@@ -106,26 +113,30 @@ public class Main {
                 player.moveUp();
                 drawCharacters(terminal, player);
                 Thread.sleep(100);
-                player.moveDown();
+                player.setArrowPress(true);
+             //   player.moveDown();
                 drawCharacters(terminal, player);
                 break;
             case ArrowDown:
                 player.moveDown();
                 drawCharacters(terminal, player);
                 Thread.sleep(100);
-                player.moveUp();
+                player.setArrowPress(true);
+              //  player.moveUp();
                 break;
             case ArrowLeft:
                 player.moveLeft();
                 drawCharacters(terminal, player);
                 Thread.sleep(100);
-                player.moveRight();
+                player.setArrowPress(true);
+                //player.moveRight();
                 break;
             case ArrowRight:
                 player.moveRight();
                 drawCharacters(terminal, player);
                 Thread.sleep(100);
-                player.moveLeft();
+                player.setArrowPress(true);
+               // player.moveLeft();
                 break;
         }
     }
@@ -180,22 +191,29 @@ public class Main {
 
     private static void moveArrows(List<Arrow> quiver) throws InterruptedException {
         for (Arrow arrow : quiver) {
+
             arrow.fall(arrow);
 
         }
     }
 
-    private static void checkIfHit(List<Arrow> arrowList, Player player) throws IOException {
-        if (arrowList.isEmpty()) {
+    private static void checkIfHit(List<Arrow> arrowList, Player player) throws IOException,InterruptedException {
+        KeyStroke left = new KeyStroke(KeyType.ArrowLeft);
+        /*if (arrowList.isEmpty()) {
             return;
+        }*/
+
+        for (int i = 0; i < arrowList.size(); i++) {
+
+
+        if (arrowList.get(i).getY() == 21 &&
+                arrowList.get(i).getX() == 23 &&
+                player.getX()!=9) {
+
+          terminal.bell();
+//          terminal.close();
         }
-        if (arrowList.get(0).getY() == 21 &&
-                arrowList.get(0).getX() == 23 &&
-                player.getX() != 9) {
-            System.out.println("BBBKKAKAKAKAK");
-//            terminal.bell();
-//            terminal.close();
-        }
+    }
     }
 
 }
