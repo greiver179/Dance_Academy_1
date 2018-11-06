@@ -148,4 +148,10 @@ public class Main {
 
     }
 
+    public static void hitbox(Arrow arrow){
+        if (arrow.getY() == 23){
+
+        }
+    }
+
 }
