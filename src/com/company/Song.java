@@ -11,7 +11,15 @@ public class Song {
     Song() {
         addArrow("left");
         addArrow("right");
-        addArrow("fel");
+        addArrow("pause");
+        addArrow("pause");
+        addArrow("pause");
+        addArrow("pause");
+        addArrow("pause");
+        addArrow("pause");
+        addArrow("pause");
+        addArrow("pause");
+        addArrow("pause");
         addArrow("right");
         addArrow("down");
         addArrow("up");
@@ -35,7 +43,7 @@ public class Song {
                 this.quiver.add(new Arrow(41, 0, '\u21d2'));
                 break;
             default:
-                this.quiver.add(new Arrow(2, 0, 'T'));
+                this.quiver.add(new Arrow(0, 0, ' '));
                 break;
         }
     }

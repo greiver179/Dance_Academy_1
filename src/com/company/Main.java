@@ -39,7 +39,7 @@ public class Main {
 
             do {
                 // everything inside this loop will be called approximately every ~5 millisec.
-                Thread.sleep(1);
+                Thread.sleep(5);
                 keyStroke = terminal.pollInput();
                 timeCounter++;
                 if (timeCounter >= timeCounterThreshold){
