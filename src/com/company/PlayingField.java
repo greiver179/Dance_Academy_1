@@ -55,7 +55,21 @@ public class PlayingField { // Everythin esthetic, seperator, lines etc
 
         }
 
+
+
     }
+
+    public void deleteScore()throws IOException{
+
+        for (int i = 11; i <= 11; i++) {
+
+            Main.terminal.setCursorPosition(i,5);
+
+            Main.terminal.putCharacter(' ');
+
+            System.out.println(" ");
+
+        }
 
     public void drawHitbox(int line) throws  IOException{
         Main.terminal.setCursorPosition(line,20);// up u21d1

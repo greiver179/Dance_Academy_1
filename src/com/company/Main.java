@@ -196,28 +196,24 @@ public class Main {
                 player.getX()!=9) {
 
           terminal.bell();
-//          terminal.close();
         }
             if (arrowList.get(i).getY() == 21 &&  //down
                     arrowList.get(i).getX() == 29 &&
-                    player.getX()!=9) {
+                    player.getY()!=11) {
 
                 terminal.bell();
-//          terminal.close();
             }
             if (arrowList.get(i).getY() == 21 && //up
                     arrowList.get(i).getX() == 35 &&
-                    player.getX()!=9) {
+                    player.getY()!=9) {
 
                 terminal.bell();
-//          terminal.close();
             }
             if (arrowList.get(i).getY() == 21 && //right
                     arrowList.get(i).getX() == 41 &&
-                    player.getX()!=9) {
+                    player.getX()!=11) {
 
                 terminal.bell();
-//          terminal.close();
             }
     }
     }
