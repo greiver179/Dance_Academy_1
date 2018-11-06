@@ -5,6 +5,8 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static Terminal terminal;
@@ -21,9 +23,15 @@ public class Main {
 
 
 ///////////////////////////////////////////////////
+
+        Song song = new Song();
+        List<Arrow> allArrowsToUse = song.getQuiver();
+        List<Arrow> quiver = new ArrayList<>();
+
         final int timeCounterThreshold = 80;
         int timeCounter = 0;
-        Arrow arrow = new Arrow(23,0,'T');
+        int index = 0;
+
         while(true){
             KeyStroke keyStroke;
 
@@ -33,16 +41,13 @@ public class Main {
                 keyStroke = terminal.pollInput();
                 timeCounter++;
                 if (timeCounter >= timeCounterThreshold){
+                    // terminal.clearScreen();
                     timeCounter = 0;
 
-
-
-                    arrow.fall(arrow);
-                    arrow.checkIfHit(arrow, player);
-
-                    drawArrow(terminal,arrow);
+                    addArrows(quiver, allArrowsToUse);
+                    moveArrows(quiver);
+                    drawArrows(quiver,terminal);
                     playingField.drawField();
-
 
 
 
@@ -74,6 +79,13 @@ public class Main {
 
 
 
+    }
+
+    private static void addArrows(List<Arrow> quiver, List<Arrow> allArrowsToUse) {
+        if (allArrowsToUse.isEmpty()){
+            return;
+        }
+        quiver.add(allArrowsToUse.remove(0));
     }
 
 
@@ -122,7 +134,7 @@ public class Main {
     private static KeyStroke getUserKeyStroke(Terminal terminal) throws InterruptedException, IOException {
         KeyStroke keyStroke;
         do {
-            Thread.sleep(5);
+            Thread.sleep(20);
             keyStroke = terminal.pollInput();
         } while (keyStroke == null);
         return keyStroke;
@@ -143,11 +155,35 @@ public class Main {
 
     }
 
-    public static void drawArrow (Terminal terminal, Arrow arrow) throws IOException {
-        terminal.clearScreen();
+    private static void drawArrow(Arrow arrow, Terminal terminal) throws IOException{
+
         terminal.setCursorPosition(arrow.getX(), arrow.getY());
         terminal.putCharacter(arrow.getArrow());
+        terminal.setCursorPosition(arrow.getX(),arrow.getY()-1);
+        terminal.putCharacter(' ');
 
+    }
+
+    private static void drawArrows(List<Arrow> quiver, Terminal terminal) throws IOException,InterruptedException {
+
+        for (Arrow arrow : quiver) {
+
+
+            terminal.setCursorPosition(arrow.getX(), arrow.getY());
+            terminal.putCharacter(arrow.getArrow());
+            terminal.setCursorPosition(arrow.getX(),arrow.getY()-1);
+            terminal.putCharacter(' ');
+
+        }
+
+    }
+
+
+    private static void moveArrows(List<Arrow> quiver) throws InterruptedException {
+        for (Arrow arrow : quiver) {
+            arrow.fall(arrow);
+
+        }
     }
 
 }
