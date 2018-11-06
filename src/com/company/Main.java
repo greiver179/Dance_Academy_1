@@ -5,6 +5,8 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static Terminal terminal;
@@ -18,12 +20,22 @@ public class Main {
         MusicPlayer music = new MusicPlayer();
         music.play("music.mp3");
 
-
+       /* if ( (p.getX() ??? e.getX()) && (p.getY() ??? e.getY()) ){
+            // GAME OVER
+        }*/
 
 ///////////////////////////////////////////////////
+
+
+
         final int timeCounterThreshold = 80;
         int timeCounter = 0;
-        Arrow arrow = new Arrow(23,0,'T');
+        Song song = new Song();
+        List<Arrow> quiver = song.getQuiver();
+        quiver.add(new Arrow(23,0,'T'));
+
+
+
         while(true){
             KeyStroke keyStroke;
 
@@ -36,10 +48,10 @@ public class Main {
                     timeCounter = 0;
 
 
+                    moveArrows(quiver);
 
-                    arrow.fall();
 
-                    drawArrow(terminal,arrow);
+                    drawArrows(quiver,terminal);
                     playingField.drawField();
 
 
@@ -141,11 +153,27 @@ public class Main {
 
     }
 
-    public static void drawArrow (Terminal terminal, Arrow arrow) throws IOException {
+   /* public static void drawArrow (Terminal terminal, Arrow arrow) throws IOException {
         terminal.clearScreen();
         terminal.setCursorPosition(arrow.getX(), arrow.getY());
         terminal.putCharacter(arrow.getArrow());
 
+    }
+*/
+    private static void drawArrows(List<Arrow> quiver, Terminal terminal) throws IOException {
+        terminal.clearScreen();
+        for (Arrow arrow : quiver) {
+            terminal.setCursorPosition(arrow.getX(), arrow.getY());
+            terminal.putCharacter(arrow.getArrow());
+        }
+
+    }
+
+
+    private static void moveArrows(List<Arrow> quiver) {
+        for (Arrow arrow : quiver) {
+            arrow.fall();
+        }
     }
 
 }
