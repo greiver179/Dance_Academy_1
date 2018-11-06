@@ -11,7 +11,7 @@ public class Arrow {
 //    private final char right = '\u21e8';
     private int x;
     private int y;
-    private char arrow;
+    public char arrow;
     private int previousX;
     private int previousY;
 
@@ -39,12 +39,6 @@ public class Arrow {
             arrow.arrow = ' ';
         }
         y++;
-    }
-
-    public void checkIfHit(Arrow arrow, Player player) throws IOException {
-        if (arrow.getY() == 23 && arrow.getX() == 23 && player.getX() != 9){
-            terminal.close();
-        }
     }
 
 
