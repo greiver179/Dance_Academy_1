@@ -51,6 +51,7 @@ public class Main {
 
 
 
+
                     drawCharacters(terminal, player);
                     /*addRandomFlakes(snowFlakes);
                     moveSnowFlakes(snowFlakes);
