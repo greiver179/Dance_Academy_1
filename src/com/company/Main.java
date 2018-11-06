@@ -191,13 +191,34 @@ public class Main {
         for (int i = 0; i < arrowList.size(); i++) {
 
 
-        if (arrowList.get(i).getY() == 21 &&
+        if (arrowList.get(i).getY() == 21 && //left
                 arrowList.get(i).getX() == 23 &&
                 player.getX()!=9) {
 
           terminal.bell();
 //          terminal.close();
         }
+            if (arrowList.get(i).getY() == 21 &&  //down
+                    arrowList.get(i).getX() == 29 &&
+                    player.getX()!=9) {
+
+                terminal.bell();
+//          terminal.close();
+            }
+            if (arrowList.get(i).getY() == 21 && //up
+                    arrowList.get(i).getX() == 35 &&
+                    player.getX()!=9) {
+
+                terminal.bell();
+//          terminal.close();
+            }
+            if (arrowList.get(i).getY() == 21 && //right
+                    arrowList.get(i).getX() == 41 &&
+                    player.getX()!=9) {
+
+                terminal.bell();
+//          terminal.close();
+            }
     }
     }
 
