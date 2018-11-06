@@ -25,9 +25,6 @@ public class Main {
         }*/
 
 ///////////////////////////////////////////////////
-
-
-
         final int timeCounterThreshold = 80;
         int timeCounter = 0;
         Song song = new Song();
@@ -153,7 +150,7 @@ public class Main {
 
     }
 
-   /* public static void drawArrow (Terminal terminal, Arrow arrow) throws IOException {
+    public static void drawArrow (Terminal terminal, Arrow arrow) throws IOException {
         terminal.clearScreen();
         terminal.setCursorPosition(arrow.getX(), arrow.getY());
         terminal.putCharacter(arrow.getArrow());

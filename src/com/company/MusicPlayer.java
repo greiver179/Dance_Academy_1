@@ -21,7 +21,6 @@ public class MusicPlayer{
         fxPanel = new JFXPanel(); // need to create one instance
     }
 
-
     private void setLoop(MediaPlayer mediaPlayer, boolean loop) {
         if (mediaPlayer == null){
             return;
@@ -33,7 +32,6 @@ public class MusicPlayer{
             mediaPlayer.setCycleCount(1);
         }
     }
-
     public void play(String filepath){
         play(filepath, false);
     }
